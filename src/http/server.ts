@@ -2,7 +2,7 @@ import cookie from '@fastify/cookie'
 import { fastifyWebsocket } from '@fastify/websocket'
 import Fastify from 'fastify'
 import { pollResults } from '../ws/poll-results'
-import { createPoll, getPoll, getPolls, voteOnPoll } from './routes'
+import { createPoll, getPoll, voteOnPoll } from './routes'
 
 const app = Fastify({
   logger: true
@@ -14,7 +14,7 @@ app.register(cookie, {
 })
 app.register(fastifyWebsocket)
 
-const routes = [ createPoll, getPoll, getPolls, voteOnPoll, pollResults ]
+const routes = [ createPoll, getPoll, voteOnPoll, pollResults ]
 
 for (const route of routes) {
   app.register(route)
