@@ -8,3 +8,7 @@ Content-Type:application/json
   "title": "Qual melhor framework Node.JS?",
   "options": ["Express", "Fastify", "NestJS", "HapiJS"]
 }
+
+###
+# @name getPollById
+GET {{baseURL}}/polls/5d4d62cb-3877-405a-ac3a-0541e57b7692 HTTP/1.1
