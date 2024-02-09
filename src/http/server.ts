@@ -1,15 +1,15 @@
 import Fastify from 'fastify'
-import { createPoll } from './routes/create-poll'
-import { getPoll } from './routes/get-poll'
-import { getPolls } from './routes/get-polls'
+import { createPoll, getPoll, getPolls, voteOnPoll } from './routes'
 
 const app = Fastify({
   logger: true
 })
 
-app.register(createPoll)
-app.register(getPolls)
-app.register(getPoll)
+const routes = [ createPoll, getPoll, getPolls, voteOnPoll ]
+
+for (const route of routes) {
+  app.register(route)
+}
 
 try {
   app.listen({ port: 3333 }).then(() => {
